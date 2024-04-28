@@ -14,7 +14,8 @@ def change_contact(args, contacts):
         return "Contact updated."
     else:
         return "Contact not found."
-def show_phone(name, contacts):
+def show_phone(args, contacts):
+    name = args[0]
     if name in contacts:
         return contacts[name]
     else:
@@ -48,7 +49,7 @@ def main():
             print(show_all(contacts))
         elif cmd in ["close", 'exit']:
             print("Good bye!")
-            exit()
+            break
         else:
             print("Invalid command.")
 
