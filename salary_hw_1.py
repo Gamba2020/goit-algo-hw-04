@@ -15,7 +15,3 @@ def total_salary(path):
 
     average_salary = total_salary / num_developers if num_developers > 0 else 0
     return total_salary, average_salary
-
-
-total, average = total_salary(r"C:\Users\krolc\PycharmProjects\goit-algo-hw-04\salaries.txt")
-print(f"Cума заробітної плати: {total}, Середня заробітна плата: {average}")

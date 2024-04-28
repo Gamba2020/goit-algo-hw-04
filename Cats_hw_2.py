@@ -12,8 +12,3 @@ def get_cats_info(path):
         print("An error occurred:", e)
 
     return cats_info
-
-
-# Приклад використання:
-cats_info = get_cats_info("Cats_info.txt")
-print(cats_info)
