@@ -39,11 +39,11 @@ def main():
         if cmd == "hello":
             print("How can I help you?")
         elif cmd == "add" and len(args) == 2:
-            print(args, contacts)
+            print(add_contact(args, contacts))
         elif cmd == "change" and len(args) == 2:
-            print(change_contact(args[0], args[1], contacts))
+            print(change_contact(args, contacts))
         elif cmd == "phone" and len(args) == 1:
-            print(show_phone(args[0], contacts))
+            print(show_phone(args, contacts))
         elif cmd == "all" and len(args) == 0:
             print(show_all(contacts))
         elif cmd in ["close", 'exit']:
