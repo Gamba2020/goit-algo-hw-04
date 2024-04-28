@@ -1,30 +1,34 @@
-def add_contact(username, phone, contacts):
-    contacts[username] = phone
+def parse_input(user_input):
+    cmd, *args = user_input.split()
+    cmd = cmd.strip().lower()
+    return cmd, args
+
+def add_contact(args, contacts):
+    name, phone = args
+    contacts[name] = phone
     return "Contact added."
-def change_contact(username, phone, contacts):
-    if username in contacts:
-        contacts[username] = phone
+def change_contact(args, contacts):
+    name, phone = args
+    if name in contacts:
+        contacts[name] = phone
         return "Contact updated."
     else:
         return "Contact not found."
-def show_phone(username, contacts):
-    if username in contacts:
-        return contacts[username]
+def show_phone(name, contacts):
+    if name in contacts:
+        return contacts[name]
     else:
         return "Contact not found."
 def show_all(contacts):
     if contacts:
         result = ""
-        for username, phone in contacts.items():
-            result += f"{username}: {phone}\n"
+        for name, phone in contacts.items():
+            result += f"{name}: {phone}\n"
         return result
     else:
         return "No contacts found."
 
-def parse_input(user_input):
-    cmd, *args = user_input.split()
-    cmd = cmd.strip().lower()
-    return cmd, args
+
 
 def main():
     contacts = {}
@@ -35,14 +39,14 @@ def main():
         if cmd == "hello":
             print("How can I help you?")
         elif cmd == "add" and len(args) == 2:
-            print(add_contact(args[0], args[1], contacts))
+            print(args, contacts)
         elif cmd == "change" and len(args) == 2:
             print(change_contact(args[0], args[1], contacts))
         elif cmd == "phone" and len(args) == 1:
             print(show_phone(args[0], contacts))
         elif cmd == "all" and len(args) == 0:
             print(show_all(contacts))
-        elif cmd == "exit" or cmd == "close":
+        elif cmd in ["close", 'exit']:
             print("Good bye!")
             exit()
         else:
