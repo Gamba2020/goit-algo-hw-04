@@ -27,7 +27,7 @@ def parse_input(user_input):
     return cmd, args
 
 def main():
-    contacts = {}  # словник для зберігання контактів
+    contacts = {}
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter command: ")
